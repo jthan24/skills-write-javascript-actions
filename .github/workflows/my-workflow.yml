@@ -30,3 +30,6 @@ jobs:
             **Make sure to reference this issue in your pull request.** </br>
             :sparkles: Thank you for your contribution! :sparkles:  </br>
             Joke: ${{ steps.ha-ha.outputs }}
+      - name: Check outputs
+        run: echo ">> ${{ steps.ha-ha.outputs }}"
+
