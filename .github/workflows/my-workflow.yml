@@ -20,6 +20,7 @@ jobs:
         uses: ./.github/actions/joke-action
 
       - name: Add comment
+        needs: ha-ha
         run: gh issue comment "$NUMBER" --body "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -29,4 +30,4 @@ jobs:
             This issue is available for anyone to work on.
             **Make sure to reference this issue in your pull request.**
             :sparkles: Thank you for your contribution! :sparkles:
-            Joke: ${{ steps.ha-ha.outputs.joke-output }}
+            Joke: ${{ needs.ha-ha.outputs.joke-output }}
