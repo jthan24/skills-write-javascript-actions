@@ -20,14 +20,13 @@ jobs:
         uses: ./.github/actions/joke-action
 
       - name: Add comment
-        needs: ha-ha
         run: gh issue comment "$NUMBER" --body "$BODY"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ github.event.issue.number }}
           BODY: >
-            This issue is available for anyone to work on.
-            **Make sure to reference this issue in your pull request.**
-            :sparkles: Thank you for your contribution! :sparkles:
-            Joke: ${{ needs.ha-ha.outputs.joke-output }}
+            This issue is available for anyone to work on. </br>
+            **Make sure to reference this issue in your pull request.** </br>
+            :sparkles: Thank you for your contribution! :sparkles:  </br>
+            Joke: ${{ steps.ha-ha.outputs }}
