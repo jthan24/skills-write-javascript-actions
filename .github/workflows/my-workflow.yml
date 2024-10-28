@@ -7,6 +7,9 @@ on:
 permissions:
   issues: write
 
+env:
+  ACTIONS_STEP_DEBUG: true
+
 jobs:
   action:
     if: ${{ !github.event.repository.is_template }}
